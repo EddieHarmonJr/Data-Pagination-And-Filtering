@@ -19,7 +19,7 @@ This function will create and insert/append the elements needed to display a "pa
 */
 
 const itemsPerPage = 9;
-const studentList = document.getElementsByClassName("student-list");
+const studentList = document.querySelector(".student-list");
 studentList.innerHTML = "";
 
 const htmlContent = '';
@@ -40,7 +40,7 @@ function showPage(list, page) {
            <span class="email">${listItem.email}</span>
          </div>
          <div class="joined-details">
-           <span class="date">${listItem.registered.date}</span>
+           <span class="date">Joined ${listItem.registered.date}</span>
          </div>
        </li>
          `
