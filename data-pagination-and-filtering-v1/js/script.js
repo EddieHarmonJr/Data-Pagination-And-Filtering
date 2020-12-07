@@ -20,11 +20,12 @@ This function will create and insert/append the elements needed to display a "pa
 
 const itemsPerPage = 9;
 const studentList = document.querySelector(".student-list");
+const linkList = document.querySelector(".link-list");
 studentList.innerHTML = "";
 
 const htmlContent = '';
 
-function showPage(list, page) {
+const showPage = (list, page) => {
    const startIndex = (page * itemsPerPage) - itemsPerPage;
    const endIndex = page * itemsPerPage;
 
@@ -50,34 +51,17 @@ function showPage(list, page) {
 };
 
 
-
-//OLD CODE
-// function showPage(list, page) {
-//    let startIndex = (page * 9) - 9;
-//    let endIndex = page * 9;
-
-//    // let unorderedList = document.getElementsByClassName("student-list");
-//    unorderedList.innerHTML = "";
-
-//    for (let i = 0; i < unorderedList.length; i++) {
-//       if (unorderedList[i] >= startIndex && unorderedList[i] < endIndex) {
-
-//          // unorderedList.insertAdjacentHTML("beforeend", "<p>This is a test</p>");
-//       }
-//    }
-
-// }
-// let unorderedList = document.getElementsByClassName("student-list");
-// const listItem = document.createElement('h1');
-// unorderedList.appendChild(listItem);
-
-
 /*
 Create the `addPagination` function
 This function will create and insert/append the elements needed for the pagination buttons
 */
 
+const addPagination = (list) => {
 
+   const numOfPages = list.length / itemsPerPage;
+
+
+};
 
 // Call functions
 
