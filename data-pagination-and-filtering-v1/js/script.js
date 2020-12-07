@@ -22,6 +22,7 @@ const itemsPerPage = 9;
 const studentList = document.querySelector(".student-list");
 const linkList = document.querySelector(".link-list");
 studentList.innerHTML = "";
+linkList.innerHTML = "";
 
 const htmlContent = '';
 
@@ -60,9 +61,9 @@ const addPagination = (list) => {
 
    const numOfPages = list.length / itemsPerPage;
 
-
 };
 
 // Call functions
 
 showPage(data, 1);
+addPagination()
