@@ -60,10 +60,20 @@ This function will create and insert/append the elements needed for the paginati
 const addPagination = (list) => {
 
    const numOfPages = list.length / itemsPerPage;
+   for (let i = 0; i < list.length; i++) {
+      const pageNumber = list[i];
+      linkList.insertAdjacentHTML("beforeend", 
+      `
+      <li>
+      <button type="button">${i}</button>
+    </li>
+      `
+      )
+   }
 
 };
 
 // Call functions
 
 showPage(data, 1);
-addPagination()
+addPagination(data);
