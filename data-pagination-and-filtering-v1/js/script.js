@@ -2,9 +2,6 @@
 const itemsPerPage = 9;
 const studentList = document.querySelector(".student-list");
 const linkList = document.querySelector(".link-list");
-linkList.innerHTML = "";
-
-const htmlContent = '';
 
 const showPage = (list, page) => {
    const startIndex = (page * itemsPerPage) - itemsPerPage;
@@ -38,7 +35,6 @@ const showPage = (list, page) => {
 const addPagination = (list) => {
    const numOfPages = Math.ceil(list.length / itemsPerPage);
    for (let i = 1; i <= numOfPages; i++) {
-      // let firstPage = list[0];
       const pageNumber = list[i];
       linkList.insertAdjacentHTML("beforeend",
          `
@@ -58,8 +54,6 @@ const addPagination = (list) => {
          currentButton.className = "";
          e.target.className = "active";
          const page = e.target.textContent;
-         // let numberedPage = parseInt(page);
-         // console.log(page);
          showPage(list, page);
       }
    });
