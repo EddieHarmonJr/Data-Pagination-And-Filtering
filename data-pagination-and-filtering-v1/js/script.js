@@ -61,7 +61,7 @@ const addPagination = (list) => {
    linkList.innerHTML = "";
 
    const numOfPages = Math.ceil(list.length / itemsPerPage);
-   for (let i = 1; i <= list.length; i++) {
+   for (let i = 1; i <= itemsPerPage; i++) {
       // let firstPage = list[0];
       const pageNumber = list[i];
       linkList.insertAdjacentHTML("beforeend", 
