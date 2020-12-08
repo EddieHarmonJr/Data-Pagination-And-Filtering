@@ -37,7 +37,7 @@ const showPage = (list, page) => {
 //This function will create the page numbers beneath the student list. It will automatically make the first page button active at the beginning and dynamically insert the page numbers in the innerText based on the current iteration.
 const addPagination = (list) => {
    const numOfPages = Math.ceil(list.length / itemsPerPage);
-   for (let i = 1; i <= itemsPerPage; i++) {
+   for (let i = 1; i <= numOfPages; i++) {
       // let firstPage = list[0];
       const pageNumber = list[i];
       linkList.insertAdjacentHTML("beforeend",
