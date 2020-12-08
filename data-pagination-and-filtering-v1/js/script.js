@@ -20,9 +20,7 @@ This function will create and insert/append the elements needed to display a "pa
 
 const itemsPerPage = 9;
 const studentList = document.querySelector(".student-list");
-const linkList = document.querySelector(".link-list");
 studentList.innerHTML = "";
-linkList.innerHTML = "";
 
 const htmlContent = '';
 
@@ -59,8 +57,11 @@ This function will create and insert/append the elements needed for the paginati
 
 const addPagination = (list) => {
 
+   const linkList = document.querySelector(".link-list");
+   linkList.innerHTML = "";
+
    const numOfPages = Math.ceil(list.length / itemsPerPage);
-   for (let i = 0; i < list.length; i++) {
+   for (let i = 1; i <= list.length; i++) {
       // let firstPage = list[0];
       const pageNumber = list[i];
       linkList.insertAdjacentHTML("beforeend", 
