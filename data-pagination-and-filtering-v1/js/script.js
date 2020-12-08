@@ -71,7 +71,8 @@ const addPagination = (list) => {
     </li>
       `
       )
-      console.log(linkList.firstChild.textContent)
+      const firstPageButton = document.querySelector(".pagination li:first-child button");
+      firstPageButton.className = "active";
    }
 };
 
