@@ -59,8 +59,9 @@ This function will create and insert/append the elements needed for the paginati
 
 const addPagination = (list) => {
 
-   const numOfPages = list.length / itemsPerPage;
+   const numOfPages = Math.ceil(list.length / itemsPerPage);
    for (let i = 0; i < list.length; i++) {
+      // let firstPage = list[0];
       const pageNumber = list[i];
       linkList.insertAdjacentHTML("beforeend", 
       `
@@ -69,9 +70,13 @@ const addPagination = (list) => {
     </li>
       `
       )
+      console.log(linkList.firstChild.textContent)
    }
-
 };
+
+// linkList.addEventListener('click', () => {
+
+// }
 
 // Call functions
 
