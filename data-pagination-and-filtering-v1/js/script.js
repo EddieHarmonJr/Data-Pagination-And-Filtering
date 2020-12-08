@@ -49,7 +49,6 @@ const addPagination = (list) => {
       firstPageButton.className = "active";
    }
 
-
    //When a page number is clicked, it will attain the ".active" className and any other page number buttons that previously had this designation will be removed. Only if the element has a node name of "BUTTON" will it be able to work.
    linkList.addEventListener('click', (e) => {
       if (e.target.nodeName === "BUTTON") {
@@ -57,11 +56,13 @@ const addPagination = (list) => {
          currentButton.className = "";
          e.target.className = "active";
          const page = e.target.textContent;
+         // let numberedPage = parseInt(page);
          // console.log(page);
          showPage(list, page);
       }
    });
 };
+
 // Call all the functions here:
 showPage(data, 1);
 addPagination(data);
