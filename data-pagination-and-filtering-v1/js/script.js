@@ -1,23 +1,4 @@
-/*
-Treehouse Techdegree:
-FSJS Project 2 - Data Pagination and Filtering
-*/
-
-
-
-/*
-For assistance:
-   Check out the "Project Resources" section of the Instructions tab: https://teamtreehouse.com/projects/data-pagination-and-filtering#instructions
-   Reach out in your Slack community: https://treehouse-fsjs-102.slack.com/app_redirect?channel=unit-2
-*/
-
-
-
-/*
-Create the `showPage` function
-This function will create and insert/append the elements needed to display a "page" of nine students
-*/
-
+//This function will display 9 students on the screen at a time by looping through the data contained in the data.js file. It will then insert key information from the student data on screen.
 const itemsPerPage = 9;
 const studentList = document.querySelector(".student-list");
 const linkList = document.querySelector(".link-list");
@@ -33,8 +14,8 @@ const showPage = (list, page) => {
    for (let i = 0; i < list.length; i++) {
       if (i >= startIndex && i < endIndex) {
          const listItem = list[i];
-         studentList.insertAdjacentHTML("beforeend", 
-         `
+         studentList.insertAdjacentHTML("beforeend",
+            `
          <li class="student-item cf">
          <div class="student-details">
            <img class="avatar" src="${listItem.picture.thumbnail}" alt="Profile Picture">
@@ -51,22 +32,14 @@ const showPage = (list, page) => {
    }
 };
 
-
-/*
-Create the `addPagination` function
-This function will create and insert/append the elements needed for the pagination buttons
-*/
-
+//This function will create the page numbers beneath the student list. It will automatically make the first page button active at the beginning and dynamically insert the page numbers in the innerText based on the current iteration.
 const addPagination = (list) => {
-
-
-
    const numOfPages = Math.ceil(list.length / itemsPerPage);
    for (let i = 1; i <= itemsPerPage; i++) {
       // let firstPage = list[0];
       const pageNumber = list[i];
-      linkList.insertAdjacentHTML("beforeend", 
-      `
+      linkList.insertAdjacentHTML("beforeend",
+         `
       <li>
       <button type="button">${i}</button>
     </li>
@@ -75,14 +48,20 @@ const addPagination = (list) => {
       const firstPageButton = document.querySelector(".pagination li:first-child button");
       firstPageButton.className = "active";
    }
+
+
+   //When a page number is clicked, it will attain the ".active" className and any other page number buttons that previously had this designation will be removed. Only if the element has a node name of "BUTTON" will it be able to work.
+   linkList.addEventListener('click', (e) => {
+      if (e.target.nodeName === "BUTTON") {
+         const currentButton = document.querySelector(".active");
+         currentButton.className = "";
+         e.target.className = "active";
+         const page = e.target.textContent;
+         // console.log(page);
+         showPage(data, page);
+      }
+   });
 };
-
-linkList.addEventListener('click', (e) => {
-
-
-});
-
-// Call functions
-
+// Call all the functions here:
 showPage(data, 1);
 addPagination(data);
