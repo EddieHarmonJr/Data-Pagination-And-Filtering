@@ -58,7 +58,7 @@ const addPagination = (list) => {
          e.target.className = "active";
          const page = e.target.textContent;
          // console.log(page);
-         showPage(data, page);
+         showPage(list, page);
       }
    });
 };
