@@ -2,7 +2,6 @@
 const itemsPerPage = 9;
 const studentList = document.querySelector(".student-list");
 const linkList = document.querySelector(".link-list");
-studentList.innerHTML = "";
 linkList.innerHTML = "";
 
 const htmlContent = '';
@@ -10,6 +9,9 @@ const htmlContent = '';
 const showPage = (list, page) => {
    const startIndex = (page * itemsPerPage) - itemsPerPage;
    const endIndex = page * itemsPerPage;
+
+   //The clearing needs to happen prior to the iteration.
+   studentList.innerHTML = "";
 
    for (let i = 0; i < list.length; i++) {
       if (i >= startIndex && i < endIndex) {
